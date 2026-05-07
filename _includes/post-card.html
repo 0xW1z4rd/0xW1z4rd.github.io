@@ -1,0 +1,36 @@
+{% assign post = include.post %}
+{% assign words = post.content | number_of_words %}
+{% assign read_time = words | divided_by: 200 | plus: 1 %}
+
+<a href="{{ post.url | relative_url }}" class="post-card">
+  <div class="post-card-body">
+    {% if post.categories.size > 0 %}
+    <div class="post-card-categories">
+      {% for category in post.categories limit:2 %}
+      <span class="tag-category" data-category="{{ category }}">{{ category }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <h3 class="post-card-title">{{ post.title }}</h3>
+
+    {% if post.excerpt %}
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+    {% endif %}
+  </div>
+
+  <div class="post-card-footer">
+    <div class="post-card-meta">
+      <span>{{ post.date | date: "%b %d, %Y" }}</span>
+      <span>&middot;</span>
+      <span>{{ read_time }} min</span>
+    </div>
+    {% if post.tags.size > 0 %}
+    <div class="post-card-tags">
+      {% for tag in post.tags limit:2 %}
+      <span class="tag-post">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</a>

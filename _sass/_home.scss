@@ -1,0 +1,202 @@
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  min-height: calc(100vh - #{$nav-height});
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 15% 50%, rgba(124, 58, 237, 0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 85% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+    top: -200px;
+    right: -150px;
+    border-radius: 50%;
+    animation: hero-float 10s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-20px, 30px) scale(1.04); }
+  66%       { transform: translate(25px, -20px) scale(0.97); }
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $sp-16;
+  align-items: center;
+  padding: $sp-24 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 560px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  color: $purple-accent;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: $sp-5;
+  padding: $sp-1 $sp-3;
+  border: 1px solid $border-default;
+  border-radius: $r-full;
+  background: rgba(124, 58, 237, 0.08);
+
+  &::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: $purple-primary;
+    border-radius: 50%;
+    box-shadow: 0 0 8px $purple-primary;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+.hero-name {
+  font-family: $font-display;
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: $fw-bold;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, $text-primary 0%, $purple-300 55%, $purple-secondary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: $sp-6;
+  display: block;
+}
+
+.hero-tagline {
+  font-size: $fs-base;
+  color: $text-secondary;
+  margin-bottom: $sp-4;
+  line-height: $lh-relaxed;
+  font-weight: $fw-medium;
+}
+
+.hero-bio {
+  font-size: $fs-lg;
+  color: $text-muted;
+  font-style: italic;
+  margin-bottom: $sp-8;
+  padding-left: $sp-4;
+  border-left: 2px solid $border-default;
+}
+
+.hero-actions {
+  display: flex;
+  gap: $sp-4;
+  flex-wrap: wrap;
+}
+
+// ─── Hero sigil (right side) ──────────────────────────────────────────────────
+.hero-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sigil-svg {
+  width: min(420px, 100%);
+  height: auto;
+  opacity: 0.7;
+  animation: sigil-rotate 40s linear infinite;
+  filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.2));
+}
+
+.sigil-ring {
+  transform-origin: center;
+}
+
+.sigil-ring-2 {
+  animation: sigil-rotate 25s linear infinite reverse;
+  transform-origin: center;
+}
+
+@keyframes sigil-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+// ─── Category cards ───────────────────────────────────────────────────────────
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $sp-3;
+  padding: $sp-6 $sp-4;
+  background: $bg-card-solid;
+  border: 1px solid $border-subtle;
+  border-radius: $r-md;
+  text-decoration: none;
+  text-align: center;
+  transition: border-color $t-base, transform $t-spring, box-shadow $t-base;
+
+  &:hover {
+    border-color: $border-hover;
+    transform: translateY(-2px);
+    box-shadow: $glow-sm;
+    color: inherit;
+
+    .category-icon-wrap {
+      background: rgba(124, 58, 237, 0.15);
+      border-color: $border-hover;
+    }
+  }
+}
+
+.category-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid $border-subtle;
+  border-radius: $r-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $purple-accent;
+  transition: background $t-base, border-color $t-base;
+}
+
+.category-name {
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  color: $text-secondary;
+}
+
+.category-count {
+  font-size: $fs-xs;
+  color: $text-muted;
+}

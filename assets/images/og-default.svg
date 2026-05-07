@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0f0b1a"/>
+  <defs>
+    <radialGradient id="g1" cx="25%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+
+  <!-- Sigil -->
+  <circle cx="920" cy="315" r="260" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3"/>
+  <circle cx="920" cy="315" r="190" fill="none" stroke="#a855f7" stroke-width="0.8" stroke-dasharray="6 12" opacity="0.2"/>
+  <path d="M680 220 L740 400 L920 280 L1100 400 L1160 220"
+        fill="none" stroke="#c084fc" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+
+  <!-- Text -->
+  <text x="80" y="280" font-family="Space Grotesk, Inter, sans-serif" font-size="110" font-weight="700"
+        fill="#f5f3ff" letter-spacing="-4">Wizard</text>
+  <text x="84" y="340" font-family="Inter, sans-serif" font-size="22" font-weight="400"
+        fill="#8b7fd4" letter-spacing="2">SECURITY RESEARCHER · DFIR · OFFENSIVE SECURITY</text>
+
+  <!-- Bottom line -->
+  <line x1="80" y1="380" x2="560" y2="380" stroke="#7c3aed" stroke-width="1.5" opacity="0.4"/>
+  <text x="80" y="410" font-family="Inter, sans-serif" font-size="18" fill="#6b5fa8">wizard.github.io</text>
+</svg>

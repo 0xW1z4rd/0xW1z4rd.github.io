@@ -1,0 +1,127 @@
+// ─── Container ────────────────────────────────────────────────────────────────
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $sp-6;
+}
+
+.container--prose {
+  max-width: $container-prose;
+}
+
+// ─── Main content ─────────────────────────────────────────────────────────────
+.main-content {
+  min-height: calc(100vh - #{$nav-height} - 200px);
+}
+
+// ─── Page header ──────────────────────────────────────────────────────────────
+.page-header {
+  padding: $sp-16 0 $sp-12;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $border-default, transparent);
+  }
+}
+
+.page-title {
+  font-size: $fs-4xl;
+  font-weight: $fw-bold;
+  font-family: $font-display;
+  background: linear-gradient(135deg, $text-primary 0%, $purple-300 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: $sp-3;
+}
+
+.page-subtitle {
+  font-size: $fs-lg;
+  color: $text-muted;
+  font-weight: $fw-normal;
+}
+
+// ─── Section ──────────────────────────────────────────────────────────────────
+.section {
+  padding: $sp-16 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: $sp-8;
+  gap: $sp-4;
+}
+
+.section-title {
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+  font-family: $font-display;
+  color: $text-primary;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.2em;
+    background: $purple-primary;
+    border-radius: $r-full;
+  }
+}
+
+.section-link {
+  font-size: $fs-sm;
+  color: $text-muted;
+  font-weight: $fw-medium;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color $t-fast;
+
+  &:hover { color: $purple-accent; }
+}
+
+// ─── Posts grid ───────────────────────────────────────────────────────────────
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: $sp-6;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+}
+
+// ─── Category grid ────────────────────────────────────────────────────────────
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: $sp-4;
+}
+
+// ─── Empty state ──────────────────────────────────────────────────────────────
+.empty-state {
+  text-align: center;
+  padding: $sp-16;
+  color: $text-muted;
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $border-default, transparent);
+  margin: $sp-16 0;
+}

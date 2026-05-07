@@ -1,0 +1,230 @@
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+// sm:  640px
+// md:  768px
+// lg:  1024px
+// xl:  1280px
+
+// ─── Tablet (< 1024px) ────────────────────────────────────────────────────────
+@media (max-width: 1024px) {
+  .post-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .post-toc {
+    position: static;
+    max-height: none;
+    order: -1;
+
+    &:not(.hidden) {
+      display: block;
+      margin-bottom: $sp-8;
+    }
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-bio {
+    border-left: none;
+    border-top: 2px solid $border-default;
+    padding-left: 0;
+    padding-top: $sp-3;
+    text-align: center;
+  }
+
+  .hero-graphic {
+    display: none;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+// ─── Mobile (< 768px) ─────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .search-toggle kbd {
+    display: none;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 18vw, 5rem);
+  }
+
+  .hero-layout {
+    padding: $sp-16 0;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-title {
+    font-size: $fs-3xl;
+  }
+
+  .post-title {
+    font-size: $fs-2xl;
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: $sp-6;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: $sp-2;
+    text-align: center;
+  }
+
+  table {
+    font-size: $fs-xs;
+  }
+
+  .stats-strip {
+    flex-wrap: wrap;
+    gap: $sp-6;
+  }
+
+  .talk-card {
+    grid-template-columns: auto 1fr;
+    gap: $sp-4;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $sp-2;
+  }
+
+  .section-title::before {
+    display: none;
+  }
+
+  .post-meta {
+    gap: $sp-3;
+    flex-wrap: wrap;
+  }
+
+  .post-meta-sep {
+    display: none;
+  }
+
+  .search-modal {
+    align-items: flex-end;
+    padding-top: 0;
+  }
+
+  .search-box {
+    border-radius: $r-lg $r-lg 0 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .back-to-top {
+    bottom: $sp-4;
+    right: $sp-4;
+  }
+}
+
+// ─── Small mobile (< 480px) ───────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .container {
+    padding: 0 $sp-4;
+  }
+
+  .btn {
+    padding: $sp-3 $sp-5;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 20vw, 4rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-card-body {
+    padding: $sp-5;
+  }
+
+  .post-card-footer {
+    padding: $sp-3 $sp-5;
+  }
+
+  .post-content h2::before {
+    display: none;
+  }
+
+  .post-content {
+    font-size: $fs-sm;
+  }
+}
+
+// ─── Large screens (> 1400px) ─────────────────────────────────────────────────
+@media (min-width: 1400px) {
+  .hero-name {
+    font-size: 8rem;
+  }
+}
+
+// ─── Print ────────────────────────────────────────────────────────────────────
+@media print {
+  .site-header,
+  .post-toc,
+  .back-to-top,
+  .search-modal,
+  .site-footer nav,
+  .giscus-frame,
+  .post-nav {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .post-content a::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: gray;
+  }
+}

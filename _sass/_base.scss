@@ -1,0 +1,204 @@
+// ─── CSS Custom Properties ────────────────────────────────────────────────────
+:root {
+  --bg-base:      #{$bg-base};
+  --bg-elevated:  #{$bg-elevated};
+  --bg-card:      #{$bg-card-solid};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-muted:   #{$text-muted};
+  --border:       #{$border-default};
+  --purple:       #{$purple-primary};
+  --purple-light: #{$purple-accent};
+}
+
+[data-theme="light"] {
+  --bg-base:      #faf9ff;
+  --bg-elevated:  #f3f0ff;
+  --bg-card:      #ffffff;
+  --text-primary: #1e1b4b;
+  --text-secondary: #4c1d95;
+  --text-muted:   #7c3aed;
+  --border:       rgba(124, 58, 237, 0.2);
+}
+
+// ─── Reset ────────────────────────────────────────────────────────────────────
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(#{$nav-height} + 1.5rem);
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $fs-base;
+  font-weight: $fw-normal;
+  line-height: $lh-normal;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: $fw-bold;
+  line-height: $lh-tight;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: $fs-4xl; }
+h2 { font-size: $fs-3xl; }
+h3 { font-size: $fs-2xl; }
+h4 { font-size: $fs-xl; }
+h5 { font-size: $fs-lg; }
+h6 { font-size: $fs-base; }
+
+p {
+  line-height: $lh-relaxed;
+  color: var(--text-primary);
+}
+
+a {
+  color: $purple-accent;
+  text-decoration: none;
+  transition: color $t-fast;
+
+  &:hover {
+    color: $purple-300;
+  }
+}
+
+strong {
+  font-weight: $fw-semibold;
+  color: var(--text-primary);
+}
+
+em {
+  font-style: italic;
+}
+
+// ─── Selection ────────────────────────────────────────────────────────────────
+::selection {
+  background: rgba(124, 58, 237, 0.3);
+  color: $text-primary;
+}
+
+// ─── Images ───────────────────────────────────────────────────────────────────
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: $r-base;
+}
+
+// ─── Lists ────────────────────────────────────────────────────────────────────
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  line-height: $lh-relaxed;
+  margin-bottom: $sp-1;
+}
+
+// ─── Blockquote ───────────────────────────────────────────────────────────────
+blockquote {
+  border-left: 3px solid $purple-primary;
+  padding: $sp-4 $sp-6;
+  margin: $sp-6 0;
+  background: rgba(124, 58, 237, 0.06);
+  border-radius: 0 $r-base $r-base 0;
+  color: $text-secondary;
+  font-style: italic;
+
+  p { margin: 0; }
+}
+
+// ─── Tables ───────────────────────────────────────────────────────────────────
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $sp-6 0;
+  font-size: $fs-sm;
+  overflow-x: auto;
+  display: block;
+}
+
+thead {
+  background: $bg-elevated;
+  border-bottom: 1px solid $border-default;
+}
+
+th {
+  text-align: left;
+  padding: $sp-3 $sp-4;
+  font-weight: $fw-semibold;
+  color: $text-secondary;
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+td {
+  padding: $sp-3 $sp-4;
+  border-bottom: 1px solid $border-subtle;
+  color: $text-primary;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(124, 58, 237, 0.04);
+}
+
+// ─── Horizontal Rule ──────────────────────────────────────────────────────────
+hr {
+  border: none;
+  border-top: 1px solid $border-subtle;
+  margin: $sp-8 0;
+}
+
+// ─── Code (inline) ────────────────────────────────────────────────────────────
+code:not([class]) {
+  font-family: $font-mono;
+  font-size: 0.85em;
+  background: rgba(124, 58, 237, 0.12);
+  color: $purple-300;
+  padding: 0.15em 0.45em;
+  border-radius: $r-sm;
+  border: 1px solid $border-subtle;
+}
+
+// ─── Scrollbar ────────────────────────────────────────────────────────────────
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: $bg-base;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: $r-full;
+  &:hover { background: rgba(124, 58, 237, 0.5); }
+}
+
+// ─── Focus ────────────────────────────────────────────────────────────────────
+:focus-visible {
+  outline: 2px solid $purple-primary;
+  outline-offset: 2px;
+  border-radius: $r-sm;
+}

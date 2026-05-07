@@ -1,0 +1,49 @@
+<svg class="sigil-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Outer ring (slow rotation via CSS) -->
+  <g class="sigil-ring">
+    <circle cx="120" cy="120" r="112" fill="none" stroke="#7c3aed" stroke-width="0.6" opacity="0.35"/>
+    <!-- tick marks -->
+    <circle cx="120" cy="8"   r="2" fill="#7c3aed" opacity="0.4"/>
+    <circle cx="120" cy="232" r="2" fill="#7c3aed" opacity="0.4"/>
+    <circle cx="8"   cy="120" r="2" fill="#7c3aed" opacity="0.4"/>
+    <circle cx="232" cy="120" r="2" fill="#7c3aed" opacity="0.4"/>
+    <circle cx="41"  cy="41"  r="1.5" fill="#7c3aed" opacity="0.25"/>
+    <circle cx="199" cy="41"  r="1.5" fill="#7c3aed" opacity="0.25"/>
+    <circle cx="41"  cy="199" r="1.5" fill="#7c3aed" opacity="0.25"/>
+    <circle cx="199" cy="199" r="1.5" fill="#7c3aed" opacity="0.25"/>
+  </g>
+
+  <!-- Middle ring (counter-rotation) -->
+  <g class="sigil-ring-2">
+    <circle cx="120" cy="120" r="84" fill="none" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="4 8" opacity="0.3"/>
+  </g>
+
+  <!-- Inner ring -->
+  <circle cx="120" cy="120" r="55" fill="none" stroke="#c084fc" stroke-width="0.4" opacity="0.2"/>
+
+  <!-- Core W glyph -->
+  <path d="M54 82 L76 158 L120 104 L164 158 L186 82"
+        fill="none" stroke="#c084fc" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"
+        opacity="0.85"/>
+
+  <!-- Glow behind W (blur simulation with layering) -->
+  <path d="M54 82 L76 158 L120 104 L164 158 L186 82"
+        fill="none" stroke="#7c3aed" stroke-width="8"
+        stroke-linecap="round" stroke-linejoin="round"
+        opacity="0.12"/>
+
+  <!-- Accent nodes -->
+  <circle cx="54"  cy="82"  r="3.5" fill="#a855f7" opacity="0.8"/>
+  <circle cx="186" cy="82"  r="3.5" fill="#a855f7" opacity="0.8"/>
+  <circle cx="120" cy="104" r="2.5" fill="#c084fc" opacity="0.6"/>
+
+  <!-- Cross-hairs (cardinal lines) -->
+  <line x1="120" y1="36" x2="120" y2="56" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+  <line x1="120" y1="184" x2="120" y2="204" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+  <line x1="36" y1="120" x2="56" y2="120" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+  <line x1="184" y1="120" x2="204" y2="120" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Center dot -->
+  <circle cx="120" cy="120" r="2" fill="#7c3aed" opacity="0.5"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="95" fill="url(#glow)"/>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+  <!-- Middle ring -->
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#a855f7" stroke-width="0.8" stroke-dasharray="5 10" opacity="0.35"/>
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="48" fill="none" stroke="#c084fc" stroke-width="0.6" opacity="0.2"/>
+
+  <!-- W glyph -->
+  <path d="M36 68 L60 138 L100 88 L140 138 L164 68"
+        fill="none" stroke="#c084fc" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Glow layer -->
+  <path d="M36 68 L60 138 L100 88 L140 138 L164 68"
+        fill="none" stroke="#7c3aed" stroke-width="18"
+        stroke-linecap="round" stroke-linejoin="round"
+        opacity="0.1"/>
+
+  <!-- Node dots -->
+  <circle cx="36"  cy="68"  r="5" fill="#a855f7" opacity="0.9"/>
+  <circle cx="164" cy="68"  r="5" fill="#a855f7" opacity="0.9"/>
+  <circle cx="100" cy="88"  r="3.5" fill="#c084fc" opacity="0.7"/>
+
+  <!-- Cardinal lines -->
+  <line x1="100" y1="8"   x2="100" y2="24"  stroke="#7c3aed" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="100" y1="176" x2="100" y2="192" stroke="#7c3aed" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="8"   y1="100" x2="24"  y2="100" stroke="#7c3aed" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="176" y1="100" x2="192" y2="100" stroke="#7c3aed" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+
+  <!-- Center mark -->
+  <circle cx="100" cy="100" r="2.5" fill="#7c3aed" opacity="0.4"/>
+</svg>

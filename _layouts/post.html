@@ -1,0 +1,138 @@
+---
+layout: default
+---
+
+{% assign words = content | number_of_words %}
+{% assign read_time = words | divided_by: 200 | plus: 1 %}
+
+<div class="reading-progress" aria-hidden="true"></div>
+
+<div class="container">
+  <div class="post-layout">
+
+    <!-- Main content -->
+    <article class="post-main">
+
+      <header class="post-header">
+
+        {% if page.categories.size > 0 %}
+        <div class="post-categories">
+          {% for category in page.categories %}
+          <a href="{{ '/research/' | relative_url }}?cat={{ category | downcase | replace: ' ', '-' }}"
+             class="tag-category" data-category="{{ category }}">{{ category }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <h1 class="post-title">{{ page.title }}</h1>
+
+        {% if page.excerpt %}
+        <p class="post-excerpt">{{ page.excerpt | strip_html | truncate: 200 }}</p>
+        {% endif %}
+
+        <div class="post-meta">
+          <span class="post-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+          </span>
+
+          <span class="post-meta-sep"></span>
+
+          <span class="post-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            {{ read_time }} min read
+          </span>
+
+          {% if page.author %}
+          <span class="post-meta-sep"></span>
+          <span class="post-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/>
+            </svg>
+            {{ page.author }}
+          </span>
+          {% endif %}
+        </div>
+
+        {% if page.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in page.tags %}
+          <span class="tag-post">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+      </header>
+
+      <div class="post-content">
+        {{ content }}
+      </div>
+
+      <!-- Post footer -->
+      <footer class="post-footer">
+
+        <nav class="post-nav" aria-label="Post navigation">
+          {% if page.previous.url %}
+          <a href="{{ page.previous.url | relative_url }}" class="post-nav-link">
+            <span class="post-nav-label">&larr; Previous</span>
+            <span class="post-nav-title">{{ page.previous.title | truncate: 60 }}</span>
+          </a>
+          {% else %}
+          <div></div>
+          {% endif %}
+
+          {% if page.next.url %}
+          <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-link--next">
+            <span class="post-nav-label">Next &rarr;</span>
+            <span class="post-nav-title">{{ page.next.title | truncate: 60 }}</span>
+          </a>
+          {% endif %}
+        </nav>
+
+        <!-- Related posts -->
+        {% assign related = site.posts | where_exp: "p", "p.url != page.url" | sort: "date" | reverse %}
+        {% assign related_posts = "" | split: "" %}
+        {% assign page_cats = page.categories %}
+        {% for post in related %}
+          {% assign shared_cats = post.categories | concat: page_cats | sort %}
+          {% assign dedup_cats  = post.categories | concat: page_cats | uniq | sort %}
+          {% if shared_cats.size > dedup_cats.size %}
+            {% assign related_posts = related_posts | push: post %}
+          {% endif %}
+          {% if related_posts.size >= 3 %}{% break %}{% endif %}
+        {% endfor %}
+
+        {% if related_posts.size > 0 %}
+        <div class="related-posts">
+          <h3 class="related-title">Related Posts</h3>
+          <ul class="related-list">
+            {% for post in related_posts limit:3 %}
+            <li>
+              <a href="{{ post.url | relative_url }}" class="related-link">
+                <span class="related-item-title">{{ post.title }}</span>
+                <span class="related-item-date">{{ post.date | date: "%b %Y" }}</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+      </footer>
+
+    </article>
+
+    <!-- TOC sidebar -->
+    {% if page.toc != false %}
+    <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+      <p class="toc-heading">On this page</p>
+      <nav class="toc-nav" id="toc-nav"></nav>
+    </aside>
+    {% endif %}
+
+  </div>
+</div>

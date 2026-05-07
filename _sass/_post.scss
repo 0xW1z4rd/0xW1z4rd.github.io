@@ -1,0 +1,315 @@
+// ─── Post layout ──────────────────────────────────────────────────────────────
+.post-layout {
+  display: grid;
+  grid-template-columns: 1fr $toc-width;
+  gap: $sp-12;
+  align-items: start;
+  padding: $sp-12 0 $sp-20;
+}
+
+.post-main {
+  min-width: 0;
+}
+
+// ─── Post header ──────────────────────────────────────────────────────────────
+.post-header {
+  margin-bottom: $sp-10;
+  padding-bottom: $sp-8;
+  border-bottom: 1px solid $border-subtle;
+}
+
+.post-categories {
+  display: flex;
+  gap: $sp-2;
+  flex-wrap: wrap;
+  margin-bottom: $sp-4;
+}
+
+.post-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: $fw-bold;
+  font-family: $font-display;
+  line-height: $lh-snug;
+  letter-spacing: -0.03em;
+  color: $text-primary;
+  margin-bottom: $sp-5;
+}
+
+.post-excerpt {
+  font-size: $fs-lg;
+  color: $text-muted;
+  line-height: $lh-relaxed;
+  margin-bottom: $sp-6;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: $sp-4;
+  flex-wrap: wrap;
+  font-size: $fs-sm;
+  color: $text-muted;
+}
+
+.post-meta-item {
+  display: flex;
+  align-items: center;
+  gap: $sp-1;
+
+  svg { opacity: 0.6; flex-shrink: 0; }
+}
+
+.post-meta-sep {
+  width: 3px;
+  height: 3px;
+  background: $text-dim;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.post-tags {
+  display: flex;
+  gap: $sp-2;
+  flex-wrap: wrap;
+  margin-top: $sp-5;
+  padding-top: $sp-5;
+  border-top: 1px solid $border-subtle;
+}
+
+// ─── Post content ─────────────────────────────────────────────────────────────
+.post-content {
+  font-size: $fs-base;
+  line-height: $lh-relaxed;
+  color: $text-primary;
+
+  h2 {
+    font-size: $fs-2xl;
+    font-weight: $fw-bold;
+    margin-top: $sp-12;
+    margin-bottom: $sp-5;
+    padding-top: $sp-2;
+    color: $text-primary;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 1em;
+      background: linear-gradient($purple-primary, $purple-secondary);
+      border-radius: $r-full;
+    }
+  }
+
+  h3 {
+    font-size: $fs-xl;
+    font-weight: $fw-semibold;
+    margin-top: $sp-8;
+    margin-bottom: $sp-4;
+    color: $text-secondary;
+  }
+
+  h4 {
+    font-size: $fs-lg;
+    font-weight: $fw-semibold;
+    margin-top: $sp-6;
+    margin-bottom: $sp-3;
+    color: $text-secondary;
+  }
+
+  p {
+    margin-bottom: $sp-5;
+    color: $text-primary;
+  }
+
+  ul, ol {
+    margin-bottom: $sp-5;
+    li { margin-bottom: $sp-2; }
+  }
+
+  a {
+    color: $purple-accent;
+    text-decoration: underline;
+    text-decoration-color: rgba(192, 132, 252, 0.35);
+    text-underline-offset: 3px;
+    transition: color $t-fast, text-decoration-color $t-fast;
+
+    &:hover {
+      color: $purple-300;
+      text-decoration-color: rgba(192, 132, 252, 0.7);
+    }
+  }
+
+  img {
+    margin: $sp-8 auto;
+    border: 1px solid $border-subtle;
+    border-radius: $r-md;
+    box-shadow: $shadow-lg;
+    max-width: 100%;
+  }
+
+  > *:first-child { margin-top: 0; }
+  > *:last-child  { margin-bottom: 0; }
+}
+
+// ─── TOC sidebar ──────────────────────────────────────────────────────────────
+.post-toc {
+  position: sticky;
+  top: calc(#{$nav-height} + #{$sp-6});
+  max-height: calc(100vh - #{$nav-height} - 3rem);
+  overflow-y: auto;
+  padding: $sp-5;
+  background: $bg-card-solid;
+  border: 1px solid $border-subtle;
+  border-radius: $r-md;
+  overscroll-behavior: contain;
+
+  &::-webkit-scrollbar { width: 3px; }
+  &::-webkit-scrollbar-thumb { background: $border-default; }
+
+  &.hidden { display: none; }
+}
+
+.toc-heading {
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  color: $text-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: $sp-3;
+}
+
+.toc-list,
+.toc-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-sublist {
+  padding-left: $sp-4;
+  margin-top: $sp-1;
+}
+
+.toc-link {
+  display: block;
+  font-size: $fs-xs;
+  color: $text-muted;
+  padding: 3px 0;
+  line-height: $lh-snug;
+  border-left: 2px solid transparent;
+  padding-left: $sp-3;
+  margin-left: -$sp-3;
+  transition: color $t-fast, border-color $t-fast;
+  text-decoration: none;
+
+  &:hover {
+    color: $text-secondary;
+  }
+
+  &.active {
+    color: $purple-accent;
+    border-left-color: $purple-primary;
+  }
+}
+
+// ─── Post footer ──────────────────────────────────────────────────────────────
+.post-footer {
+  margin-top: $sp-16;
+  padding-top: $sp-8;
+  border-top: 1px solid $border-subtle;
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $sp-4;
+  margin-bottom: $sp-12;
+}
+
+.post-nav-link {
+  display: block;
+  padding: $sp-5;
+  background: $bg-card-solid;
+  border: 1px solid $border-subtle;
+  border-radius: $r-md;
+  text-decoration: none;
+  transition: border-color $t-base, box-shadow $t-base;
+
+  &:hover {
+    border-color: $border-hover;
+    box-shadow: $glow-sm;
+    color: inherit;
+  }
+
+  &--next { text-align: right; }
+}
+
+.post-nav-label {
+  display: block;
+  font-size: $fs-xs;
+  color: $text-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: $sp-2;
+}
+
+.post-nav-title {
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  color: $text-secondary;
+  line-height: $lh-snug;
+}
+
+// ─── Related posts ────────────────────────────────────────────────────────────
+.related-posts {
+  margin-top: $sp-12;
+}
+
+.related-title {
+  font-size: $fs-lg;
+  font-weight: $fw-semibold;
+  color: $text-secondary;
+  margin-bottom: $sp-5;
+}
+
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-3;
+  list-style: none;
+  padding: 0;
+}
+
+.related-link {
+  display: flex;
+  align-items: center;
+  gap: $sp-3;
+  padding: $sp-3 $sp-4;
+  background: $bg-card-solid;
+  border: 1px solid $border-subtle;
+  border-radius: $r-base;
+  text-decoration: none;
+  transition: border-color $t-fast, color $t-fast;
+
+  &:hover {
+    border-color: $border-hover;
+    color: $purple-accent;
+  }
+}
+
+.related-item-title {
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $text-secondary;
+  flex: 1;
+}
+
+.related-item-date {
+  font-size: $fs-xs;
+  color: $text-dim;
+  flex-shrink: 0;
+}

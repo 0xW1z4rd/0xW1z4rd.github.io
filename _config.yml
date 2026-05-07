@@ -1,0 +1,100 @@
+title: Wizard
+tagline: "Security Researcher · DFIR · Offensive Security · Detection Engineering"
+description: "Personal research blog covering offensive security, DFIR, detection engineering, Active Directory attacks, and CTF writeups."
+url: "https://w1z4rd.github.io"
+baseurl: ""
+
+author:
+  name: Wizard
+  bio: "Building detection logic from digital shadows."
+  github: "wizard"
+  linkedin: ""
+  discord: ""
+  twitter: ""
+  email: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    block:
+      line_numbers: false
+
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass
+  silence_deprecations:
+    - import
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  talks:
+    output: true
+    permalink: /talks/:name/
+  labs:
+    output: true
+    permalink: /labs/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Wizard"
+      toc: true
+      comments: true
+  - scope:
+      path: ""
+      type: "talks"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "labs"
+    values:
+      layout: "post"
+      toc: true
+
+# Feed
+feed:
+  title: "Wizard — Security Research"
+
+# SEO
+twitter:
+  username: wizard
+  card: summary_large_image
+
+# Giscus comments
+giscus:
+  enabled: false
+  repo: "username/username.github.io"
+  repo_id: ""
+  category: "General"
+  category_id: ""
+  mapping: "pathname"
+  reactions_enabled: "1"
+  theme: "dark"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .bundle/
+  - README.md

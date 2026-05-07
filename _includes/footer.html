@@ -1,0 +1,57 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="{{ '/' | relative_url }}" class="site-logo" style="margin-bottom:0.75rem;display:inline-flex">
+          <svg width="28" height="28" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="25" cy="25" r="23" fill="none" stroke="#7c3aed" stroke-width="1.2" opacity="0.5"/>
+            <path d="M11 18 L17 33 L25 21 L33 33 L39 18" fill="none" stroke="#c084fc" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-text">Wizard</span>
+        </a>
+        <p class="footer-bio">{{ site.author.bio }}</p>
+      </div>
+
+      <!-- Nav links -->
+      <div>
+        <p class="footer-heading">Navigation</p>
+        <ul class="footer-links">
+          {% for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}" class="footer-link">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <p class="footer-heading">Connect</p>
+        <ul class="footer-social-links">
+          {% for social in site.data.social %}
+          {% if social.url != "" %}
+          <li>
+            <a href="{{ social.url }}" class="footer-link" target="_blank" rel="noopener noreferrer">
+              {{ social.name }}
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">
+        &copy; {{ 'now' | date: "%Y" }} <a href="{{ '/' | relative_url }}">Wizard</a>. All rights reserved.
+      </span>
+      <span>
+        <a href="{{ '/feed.xml' | relative_url }}" class="footer-link">RSS</a>
+        &middot;
+        <a href="{{ '/sitemap.xml' | relative_url }}" class="footer-link">Sitemap</a>
+      </span>
+    </div>
+
+  </div>
+</footer>

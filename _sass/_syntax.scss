@@ -1,0 +1,136 @@
+// ─── Code block container ─────────────────────────────────────────────────────
+.highlight {
+  position: relative;
+  margin: $sp-6 0;
+  border-radius: $r-md;
+  overflow: hidden;
+  border: 1px solid $border-subtle;
+  background: $bg-code;
+  box-shadow: $shadow-base;
+
+  pre {
+    margin: 0;
+    padding: $sp-5 $sp-6;
+    overflow-x: auto;
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    line-height: 1.7;
+    color: #e2e8f0;
+
+    &::-webkit-scrollbar { height: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: $border-default; border-radius: $r-full; }
+  }
+
+  code {
+    font-family: $font-mono;
+    font-size: inherit;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    color: inherit;
+  }
+
+  // Language label
+  &[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: $sp-3;
+    left: $sp-4;
+    font-family: $font-mono;
+    font-size: 10px;
+    font-weight: $fw-semibold;
+    color: $text-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+  }
+
+  // Top accent line
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, $purple-primary, $purple-secondary, transparent);
+    opacity: 0.5;
+  }
+}
+
+// ─── Rouge color theme (purple/dark) ─────────────────────────────────────────
+.highlight {
+  .hll { background: rgba(124, 58, 237, 0.12); }
+
+  // Comments
+  .c, .cm, .c1, .cs { color: #6b5fa8; font-style: italic; }
+  .cp              { color: #a78bfa; }
+
+  // Keywords
+  .k, .kc, .kd, .kr { color: #c084fc; font-weight: $fw-medium; }
+  .kn               { color: #a855f7; }
+  .kp               { color: #c084fc; }
+  .kt               { color: #8b5cf6; }
+
+  // Names
+  .n               { color: #e2e8f0; }
+  .na              { color: #93c5fd; }
+  .nb              { color: #a855f7; }
+  .nc              { color: #93c5fd; font-weight: $fw-medium; }
+  .no              { color: #ddd6fe; }
+  .nd              { color: #c084fc; }
+  .ni              { color: #e2e8f0; }
+  .ne              { color: #fca5a5; font-weight: $fw-bold; }
+  .nf              { color: #93c5fd; }
+  .nl              { color: #e2e8f0; }
+  .nn              { color: #93c5fd; }
+  .nx              { color: #93c5fd; }
+  .py              { color: #e2e8f0; }
+  .nt              { color: #c084fc; }
+  .nv              { color: #f9a8d4; }
+  .bp              { color: #a855f7; }
+  .vc, .vg, .vi   { color: #f9a8d4; }
+
+  // Literals
+  .l               { color: $text-primary; }
+  .m, .mf, .mh, .mi, .mo, .il { color: #86efac; }
+
+  // Strings
+  .s, .sb, .sc, .sd, .s2, .sh, .si, .sx, .sr, .s1 { color: #6ee7b7; }
+  .se              { color: #f9a8d4; }
+  .ss              { color: #f9a8d4; }
+
+  // Operators
+  .o, .ow          { color: #a855f7; }
+
+  // Punctuation
+  .p               { color: #c4b5fd; }
+
+  // Generic
+  .err             { color: #fca5a5; }
+  .gd              { color: #fca5a5; background: rgba(239, 68, 68, 0.1); }
+  .ge              { font-style: italic; }
+  .gi              { color: #6ee7b7; background: rgba(16, 185, 129, 0.1); }
+  .gu              { color: #a855f7; font-weight: $fw-bold; }
+  .w               { color: #e2e8f0; }
+
+  // Bash-specific
+  .nb              { color: #c084fc; } // builtins: echo, cd, etc.
+}
+
+// ─── Mermaid diagrams ─────────────────────────────────────────────────────────
+.language-mermaid {
+  background: $bg-elevated;
+  border: 1px solid $border-subtle;
+  border-radius: $r-md;
+  padding: $sp-6;
+  margin: $sp-6 0;
+  text-align: center;
+  overflow-x: auto;
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}

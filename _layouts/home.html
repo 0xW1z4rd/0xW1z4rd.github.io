@@ -1,0 +1,131 @@
+---
+layout: default
+---
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-content">
+
+        <div class="hero-eyebrow">Security Researcher</div>
+
+        <span class="hero-name">Wizard</span>
+
+        <p class="hero-tagline">
+          Security Researcher &middot; DFIR &middot; Offensive Security &middot; Detection Engineering
+        </p>
+
+        <p class="hero-bio">Building detection logic from digital shadows.</p>
+
+        <div class="hero-actions">
+          <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            About
+          </a>
+          <a href="{{ '/research/' | relative_url }}" class="btn btn-outline">
+            Research
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-graphic" aria-hidden="true">
+        {% include sigil.html %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent posts -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-title">Recent Research</h2>
+      <a href="{{ '/research/' | relative_url }}" class="section-link">All posts &rarr;</a>
+    </div>
+
+    <div class="posts-grid">
+      {% for post in site.posts limit:6 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Topics -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <h2 class="section-title" style="margin-bottom:1.5rem">Topics</h2>
+
+    <div class="category-grid">
+
+      <a href="{{ '/writeups/' | relative_url }}" class="category-card">
+        <div class="category-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <span class="category-name">CTF Writeups</span>
+        <span class="category-count">{{ site.posts | where_exp: "p", "p.categories contains 'CTF'" | size }} posts</span>
+      </a>
+
+      <a href="{{ '/research/' | relative_url }}" class="category-card">
+        <div class="category-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <span class="category-name">Research</span>
+        <span class="category-count">{{ site.posts | where_exp: "p", "p.categories contains 'Research'" | size }} posts</span>
+      </a>
+
+      <a href="{{ '/research/' | relative_url }}?cat=active-directory" class="category-card">
+        <div class="category-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <span class="category-name">Active Directory</span>
+        <span class="category-count">{{ site.posts | where_exp: "p", "p.categories contains 'Active Directory'" | size }} posts</span>
+      </a>
+
+      <a href="{{ '/research/' | relative_url }}?cat=dfir" class="category-card">
+        <div class="category-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span class="category-name">DFIR</span>
+        <span class="category-count">{{ site.posts | where_exp: "p", "p.categories contains 'DFIR'" | size }} posts</span>
+      </a>
+
+      <a href="{{ '/research/' | relative_url }}?cat=detection" class="category-card">
+        <div class="category-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <span class="category-name">Detection</span>
+        <span class="category-count">{{ site.posts | where_exp: "p", "p.categories contains 'Detection'" | size }} posts</span>
+      </a>
+
+      <a href="{{ '/labs/' | relative_url }}" class="category-card">
+        <div class="category-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+          </svg>
+        </div>
+        <span class="category-name">Labs</span>
+        <span class="category-count">{{ site.labs | size }} labs</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+{{ content }}
