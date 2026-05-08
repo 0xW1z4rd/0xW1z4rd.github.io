@@ -730,6 +730,207 @@
   line-height: $lh-relaxed;
 }
 
+// ── Terminal divider + inline links ($links inside profile card) ──────────────
+.terminal-divider {
+  height: 1px;
+  background: $border-subtle;
+  margin: $sp-5 (-$sp-6);
+}
+
+.terminal-links {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-1;
+  margin: 0 (-$sp-2);
+}
+
+.terminal-link-row {
+  display: grid;
+  grid-template-columns: 72px 20px 1fr;
+  align-items: center;
+  gap: $sp-2;
+  padding: $sp-2 $sp-2;
+  border-radius: $r-base;
+  text-decoration: none;
+  transition: background $t-fast;
+
+  &:hover {
+    background: rgba(124, 58, 237, 0.07);
+
+    .tl-key   { color: $purple-accent; }
+    .tl-arrow { color: $purple-primary; }
+    .tl-val   { color: $text-primary; }
+  }
+}
+
+.tl-key {
+  font-family: $font-mono;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $purple-300;
+  transition: color $t-fast;
+}
+
+.tl-arrow {
+  font-family: $font-mono;
+  font-size: $fs-sm;
+  color: $text-dim;
+  transition: color $t-fast;
+}
+
+.tl-val {
+  font-family: $font-mono;
+  font-size: $fs-sm;
+  color: $text-muted;
+  transition: color $t-fast;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ── Hall of Triumphs ──────────────────────────────────────────────────────────
+.triumphs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-3;
+}
+
+.triumph-card {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: $sp-5;
+  padding: $sp-5 $sp-6;
+  background: $bg-card-solid;
+  border: 1px solid $border-subtle;
+  border-radius: $r-md;
+  position: relative;
+  overflow: hidden;
+  transition: border-color $t-base, transform $t-spring, box-shadow $t-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient($purple-primary, $purple-accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform $t-base;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity $t-base;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: $border-hover;
+    transform: translateY(-2px);
+    box-shadow: $glow-base;
+
+    &::before { transform: scaleY(1); }
+    &::after  { opacity: 1; }
+
+    .triumph-rank { color: $purple-accent; border-color: $border-hover; background: rgba(124, 58, 237, 0.12); }
+  }
+}
+
+.triumph-rank {
+  width: 44px;
+  height: 44px;
+  background: rgba(124, 58, 237, 0.07);
+  border: 1px solid $border-subtle;
+  border-radius: $r-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $purple-primary;
+  flex-shrink: 0;
+  transition: color $t-base, background $t-base, border-color $t-base;
+}
+
+.triumph-body {
+  min-width: 0;
+}
+
+.triumph-name {
+  font-size: $fs-base;
+  font-weight: $fw-semibold;
+  color: $text-primary;
+  margin-bottom: $sp-1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.triumph-meta {
+  display: flex;
+  align-items: center;
+  gap: $sp-2;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: $text-muted;
+  flex-wrap: wrap;
+}
+
+.triumph-platform {
+  color: $text-secondary;
+  font-weight: $fw-medium;
+}
+
+.triumph-sep {
+  color: $text-dim;
+  opacity: 0.5;
+}
+
+.triumph-badge {
+  flex-shrink: 0;
+  padding: $sp-1 $sp-3;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid $border-default;
+  border-radius: $r-full;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-bold;
+  color: $purple-accent;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.triumph-badge--gold {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+}
+
+.triumph-badge--active {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: $color-success;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: $color-success;
+    border-radius: 50%;
+    margin-right: $sp-2;
+    vertical-align: middle;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
 // ── Knowledge Transmissions (timeline) ────────────────────────────────────────
 .knowledge-timeline {
   position: relative;
@@ -1026,21 +1227,21 @@
     grid-template-columns: 1fr;
   }
 
-  .campaign-item {
-    grid-template-columns: 1fr;
-    gap: $sp-1;
-  }
-
-  .campaign-rank {
-    text-align: left;
+  .triumph-card {
+    grid-template-columns: 38px 1fr;
+    .triumph-badge { display: none; }
   }
 
   .about-section {
     padding: $sp-12 0;
   }
 
-  .contact-link {
-    grid-template-columns: 70px 18px 1fr;
+  .terminal-link-row {
+    grid-template-columns: 64px 16px 1fr;
+  }
+
+  .tl-val {
+    font-size: $fs-xs;
   }
 }
 

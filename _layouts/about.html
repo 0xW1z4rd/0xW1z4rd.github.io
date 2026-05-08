@@ -88,7 +88,7 @@ layout: default
         {% endif %}
       </div>
 
-      <!-- Terminal card -->
+      <!-- Terminal card — identity hub -->
       <div class="profile-terminal">
         <div class="terminal-titlebar">
           <span class="terminal-dot red"></span>
@@ -97,6 +97,8 @@ layout: default
           <span class="terminal-title">wizard@kali — ~/about</span>
         </div>
         <div class="terminal-body">
+
+          <!-- $ whoami -->
           <div class="terminal-prompt">
             <span class="terminal-ps">$</span>
             <span class="terminal-cmd">whoami</span>
@@ -116,6 +118,37 @@ layout: default
             <span class="terminal-key">Focus</span>
             <span class="terminal-val">DFIR / AD / Detection Engineering</span>
           </div>
+
+          <div class="terminal-divider"></div>
+
+          <!-- $ links -->
+          <div class="terminal-prompt">
+            <span class="terminal-ps">$</span>
+            <span class="terminal-cmd">links</span>
+          </div>
+          <div class="terminal-links">
+            <a href="https://github.com/0xW1z4rd" class="terminal-link-row" target="_blank" rel="noopener">
+              <span class="tl-key">GitHub</span>
+              <span class="tl-arrow">-&gt;</span>
+              <span class="tl-val">github.com/0xW1z4rd</span>
+            </a>
+            <a href="https://linkedin.com/in/wizard" class="terminal-link-row" target="_blank" rel="noopener">
+              <span class="tl-key">LinkedIn</span>
+              <span class="tl-arrow">-&gt;</span>
+              <span class="tl-val">linkedin.com/in/wizard</span>
+            </a>
+            <a href="#" class="terminal-link-row">
+              <span class="tl-key">Discord</span>
+              <span class="tl-arrow">-&gt;</span>
+              <span class="tl-val">wizard</span>
+            </a>
+            <a href="mailto:wizard@protonmail.com" class="terminal-link-row">
+              <span class="tl-key">Email</span>
+              <span class="tl-arrow">-&gt;</span>
+              <span class="tl-val">wizard@protonmail.com</span>
+            </a>
+          </div>
+
         </div>
       </div>
 
@@ -266,33 +299,70 @@ layout: default
 
     </div>
 
-    <!-- CTF Campaigns -->
-    <h3 class="about-subsection-title">Campaigns</h3>
-    <div class="campaigns-list">
-      <div class="campaign-item">
-        <span class="campaign-name">HackTheBox — Pro Labs Offshore</span>
-        <span class="campaign-platform">HackTheBox</span>
-        <span class="campaign-rank">Completed</span>
+    <!-- Hall of Triumphs -->
+    <h3 class="about-subsection-title">Hall of Triumphs</h3>
+    <div class="triumphs-grid">
+
+      <div class="triumph-card">
+        <div class="triumph-rank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="triumph-body">
+          <div class="triumph-name">Pro Labs Offshore</div>
+          <div class="triumph-meta">
+            <span class="triumph-platform">HackTheBox</span>
+            <span class="triumph-sep">&middot;</span>
+            <span>Active Directory · Multi-forest</span>
+          </div>
+        </div>
+        <div class="triumph-badge">Completed</div>
       </div>
-      <div class="campaign-item">
-        <span class="campaign-name">HackTheBox — Various Active Machines</span>
-        <span class="campaign-platform">HackTheBox</span>
-        <span class="campaign-rank">Active</span>
+
+      <div class="triumph-card">
+        <div class="triumph-rank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="triumph-body">
+          <div class="triumph-name">TryHackMe — Global Ranking</div>
+          <div class="triumph-meta">
+            <span class="triumph-platform">TryHackMe</span>
+            <span class="triumph-sep">&middot;</span>
+            <span>Offensive &amp; Defensive paths</span>
+          </div>
+        </div>
+        <div class="triumph-badge triumph-badge--gold">Top 5%</div>
       </div>
-      <div class="campaign-item">
-        <span class="campaign-name">TryHackMe — Top % Ranking</span>
-        <span class="campaign-platform">TryHackMe</span>
-        <span class="campaign-rank">Top 5%</span>
+
+      <div class="triumph-card">
+        <div class="triumph-rank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="triumph-body">
+          <div class="triumph-name">HackTheBox — Active Machines</div>
+          <div class="triumph-meta">
+            <span class="triumph-platform">HackTheBox</span>
+            <span class="triumph-sep">&middot;</span>
+            <span>Windows · Linux · AD chains</span>
+          </div>
+        </div>
+        <div class="triumph-badge triumph-badge--active">Active</div>
       </div>
+
     </div>
 
-    <!-- Operations -->
-    <h3 class="about-subsection-title">Operations</h3>
+    <!-- CTF Architect -->
+    <h3 class="about-subsection-title">CTF Architect</h3>
     <div class="operations-list">
       <div class="operation-item">
         <div>
-          <div class="operation-name">Hackerlab — Challenge Architect</div>
-          <div class="operation-desc">Designed and deployed offensive security challenges for national training events</div>
+          <div class="operation-name">Hackerlab — Challenge Design</div>
+          <div class="operation-desc">Designed and deployed offensive security challenges for national training events &amp; competitions</div>
         </div>
         <span class="operation-year">2025</span>
       </div>
@@ -371,50 +441,3 @@ layout: default
 </section>
 
 
-<!-- ══════════════════════════════════════════════════════════
-     CONTACT
-     ══════════════════════════════════════════════════════════ -->
-<section class="about-section" style="border-bottom:none">
-  <div class="container">
-    <p class="about-section-label">Contact</p>
-    <h2 class="about-section-title">Get in Touch</h2>
-
-    <div class="contact-terminal">
-      <div class="contact-terminal-header">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="contact-terminal-title">wizard@kali — ~/links</span>
-      </div>
-      <div class="contact-terminal-body">
-        <div class="contact-prompt">
-          <span class="terminal-ps">$</span>
-          <span class="terminal-cmd">links</span>
-        </div>
-        <div class="contact-links">
-          <a href="https://github.com/0xW1z4rd" class="contact-link" target="_blank" rel="noopener">
-            <span class="contact-link-key">GitHub</span>
-            <span class="contact-link-arrow">-&gt;</span>
-            <span class="contact-link-val">github.com/0xW1z4rd</span>
-          </a>
-          <a href="https://linkedin.com/in/wizard" class="contact-link" target="_blank" rel="noopener">
-            <span class="contact-link-key">LinkedIn</span>
-            <span class="contact-link-arrow">-&gt;</span>
-            <span class="contact-link-val">linkedin.com/in/wizard</span>
-          </a>
-          <a href="#" class="contact-link">
-            <span class="contact-link-key">Discord</span>
-            <span class="contact-link-arrow">-&gt;</span>
-            <span class="contact-link-val">wizard</span>
-          </a>
-          <a href="mailto:wizard@protonmail.com" class="contact-link">
-            <span class="contact-link-key">Email</span>
-            <span class="contact-link-arrow">-&gt;</span>
-            <span class="contact-link-val">wizard@protonmail.com</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
