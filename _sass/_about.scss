@@ -364,6 +364,35 @@
   color: $purple-accent;
 }
 
+// Profile pill links
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-2;
+  margin-top: $sp-3;
+}
+
+.profile-link-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: $sp-1 $sp-3;
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid $border-subtle;
+  border-radius: $r-full;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: $text-muted;
+  text-decoration: none;
+  transition: background $t-fast, border-color $t-fast, color $t-fast;
+  letter-spacing: 0.04em;
+
+  &:hover {
+    background: rgba(124, 58, 237, 0.12);
+    border-color: $border-default;
+    color: $purple-accent;
+  }
+}
+
 // ── Philosophy ────────────────────────────────────────────────────────────────
 .about-philosophy {
   background: $bg-elevated;
@@ -929,6 +958,37 @@
     vertical-align: middle;
     animation: pulse 2s ease-in-out infinite;
   }
+}
+
+.triumph-badge--silver {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: #cbd5e1;
+}
+
+.triumph-badge--bronze {
+  background: rgba(180, 110, 50, 0.08);
+  border-color: rgba(180, 110, 50, 0.25);
+  color: #d4956a;
+}
+
+.triumph-rank-num {
+  font-family: $font-mono;
+  font-size: $fs-sm;
+  font-weight: $fw-bold;
+  letter-spacing: -0.02em;
+}
+
+.triumph-rank--silver {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.07);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.triumph-rank--bronze {
+  color: #d4956a;
+  background: rgba(180, 110, 50, 0.07);
+  border-color: rgba(180, 110, 50, 0.2);
 }
 
 // ── Knowledge Transmissions (timeline) ────────────────────────────────────────
