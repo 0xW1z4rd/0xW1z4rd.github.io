@@ -6,5 +6,5 @@ description: "Emmanuel HEMADOU — Wizard. Security Researcher, DFIR specialist 
 # To display your profile photo:
 # 1. Copy your photo to assets/images/profile.jpg
 # 2. Uncomment the line below
-# photo: /assets/images/profile.jpg
+photo: /assets/images/profile.jpg
 ---
