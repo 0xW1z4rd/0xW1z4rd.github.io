@@ -1,0 +1,420 @@
+---
+layout: default
+---
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+
+      <!-- Large W emblem -->
+      <div class="about-hero-emblem" aria-hidden="true">
+        <svg class="about-hero-emblem-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring (slow rotation) -->
+          <g class="emblem-ring-outer">
+            <circle cx="90" cy="90" r="87" fill="none" stroke="#7c3aed" stroke-width="0.8" opacity="0.45"/>
+            <circle cx="90" cy="3"   r="2.5" fill="#7c3aed" opacity="0.6"/>
+            <circle cx="90" cy="177" r="2.5" fill="#7c3aed" opacity="0.6"/>
+            <circle cx="3"   cy="90" r="2.5" fill="#7c3aed" opacity="0.6"/>
+            <circle cx="177" cy="90" r="2.5" fill="#7c3aed" opacity="0.6"/>
+            <circle cx="26"  cy="26" r="1.5" fill="#7c3aed" opacity="0.3"/>
+            <circle cx="154" cy="26" r="1.5" fill="#7c3aed" opacity="0.3"/>
+            <circle cx="26"  cy="154" r="1.5" fill="#7c3aed" opacity="0.3"/>
+            <circle cx="154" cy="154" r="1.5" fill="#7c3aed" opacity="0.3"/>
+          </g>
+          <!-- Mid ring (counter rotation) -->
+          <g class="emblem-ring-mid">
+            <circle cx="90" cy="90" r="66" fill="none" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="5 9" opacity="0.3"/>
+          </g>
+          <!-- Inner ring -->
+          <circle cx="90" cy="90" r="46" fill="none" stroke="#c084fc" stroke-width="0.5" opacity="0.18"/>
+          <!-- Glow W -->
+          <path d="M28 58 L52 122 L90 78 L128 122 L152 58"
+                fill="none" stroke="#7c3aed" stroke-width="14"
+                stroke-linecap="round" stroke-linejoin="round" opacity="0.1"/>
+          <!-- Main W -->
+          <path d="M28 58 L52 122 L90 78 L128 122 L152 58"
+                fill="none" stroke="#c084fc" stroke-width="3.2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Node dots -->
+          <circle cx="28"  cy="58" r="4"   fill="#a855f7" opacity="0.9"/>
+          <circle cx="152" cy="58" r="4"   fill="#a855f7" opacity="0.9"/>
+          <circle cx="90"  cy="78" r="3"   fill="#c084fc" opacity="0.7"/>
+          <!-- Cardinal lines -->
+          <line x1="90" y1="14"  x2="90" y2="28"  stroke="#7c3aed" stroke-width="1.2" opacity="0.35" stroke-linecap="round"/>
+          <line x1="90" y1="152" x2="90" y2="166" stroke="#7c3aed" stroke-width="1.2" opacity="0.35" stroke-linecap="round"/>
+          <line x1="14"  y1="90" x2="28"  y2="90" stroke="#7c3aed" stroke-width="1.2" opacity="0.35" stroke-linecap="round"/>
+          <line x1="152" y1="90" x2="166" y2="90" stroke="#7c3aed" stroke-width="1.2" opacity="0.35" stroke-linecap="round"/>
+          <!-- Center -->
+          <circle cx="90" cy="90" r="2" fill="#7c3aed" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <!-- Text -->
+      <div class="about-hero-content">
+        <p class="about-hero-eyebrow">Security Researcher</p>
+        <h1 class="about-hero-name">Wizard</h1>
+        <p class="about-hero-subtitle">Security Researcher &bull; DFIR &bull; Offensive Security</p>
+        <p class="about-hero-quote">Building detection logic from digital shadows.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PROFILE — whoami
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <p class="about-section-label">Identity</p>
+    <div class="about-profile-grid">
+
+      <!-- Photo -->
+      <div class="profile-photo-wrap">
+        {% if page.photo %}
+        <img src="{{ page.photo | relative_url }}" alt="Wizard" class="profile-photo">
+        {% else %}
+        <div class="profile-photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="25" cy="25" r="23" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+            <path d="M11 18 L17 33 L25 21 L33 33 L39 18" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="profile-photo-hint">Add profile.jpg<br>to assets/images/<br>and set photo:<br>in about.md</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Terminal card -->
+      <div class="profile-terminal">
+        <div class="terminal-titlebar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">wizard@kali — ~/about</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-prompt">
+            <span class="terminal-ps">$</span>
+            <span class="terminal-cmd">whoami</span>
+            <span class="terminal-cursor"></span>
+          </div>
+          <div class="terminal-data">
+            <span class="terminal-key">Name</span>
+            <span class="terminal-val-highlight">Emmanuel HEMADOU</span>
+            <span class="terminal-key">Alias</span>
+            <span class="terminal-val-accent">Wizard</span>
+            <span class="terminal-key">Role</span>
+            <span class="terminal-val">Security Researcher</span>
+            <span class="terminal-key">Affiliation</span>
+            <span class="terminal-val">bjCSIRT</span>
+            <span class="terminal-key">Team</span>
+            <span class="terminal-val-accent">Escadron</span>
+            <span class="terminal-key">Focus</span>
+            <span class="terminal-val">DFIR / AD / Detection Engineering</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     RESEARCH PHILOSOPHY
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section about-philosophy">
+  <div class="container">
+    <div class="philosophy-inner">
+      <div class="philosophy-rune" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="23" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+          <path d="M11 18 L17 33 L25 21 L33 33 L39 18" fill="none" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <blockquote class="philosophy-quote">
+        I explore systems, protocols and digital shadows<br>
+        to transform attack paths into <em>detection logic</em><br>
+        and offensive knowledge into <em>resilience</em>.
+      </blockquote>
+      <p class="philosophy-author">— Wizard, Research Philosophy</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     DOMAINS OF EXPERTISE
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <p class="about-section-label">Expertise</p>
+    <h2 class="about-section-title">Domains of Expertise</h2>
+
+    <div class="expertise-grid">
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="expertise-name">Detection Engineering</div>
+        <div class="expertise-desc">Sigma rules, Splunk SPL, Elastic EQL &mdash; translating adversary behavior into detection logic.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="expertise-name">Active Directory</div>
+        <div class="expertise-desc">Kerberoasting, delegation abuse, ACL exploitation, BloodHound, post-exploitation chains.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="expertise-name">DFIR</div>
+        <div class="expertise-desc">Incident response, memory forensics, Windows event log analysis, IOC extraction.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
+            <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="expertise-name">Threat Hunting</div>
+        <div class="expertise-desc">Hypothesis-driven hunting, behavioral analytics, anomaly detection across endpoints and network.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div class="expertise-name">Offensive Security</div>
+        <div class="expertise-desc">Red team operations, credential attacks, lateral movement, adversary simulation.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="15" y="2" width="7" height="7" rx="1"/>
+            <rect x="2" y="15" width="7" height="7" rx="1"/><rect x="15" y="15" width="7" height="7" rx="1"/>
+            <path d="M9 5.5h6M5.5 9v6M18.5 9v6M9 18.5h6"/>
+          </svg>
+        </div>
+        <div class="expertise-name">Network Analysis</div>
+        <div class="expertise-desc">PCAP analysis, Zeek/Suricata, network-based detection, protocol-level investigation.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div class="expertise-name">SIEM Engineering</div>
+        <div class="expertise-desc">Detection-as-Code pipelines, alert tuning, threat library management, Elastic &amp; Splunk.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     CHRONICLES & RELICS
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <p class="about-section-label">Achievements</p>
+    <h2 class="about-section-title">Chronicles &amp; Relics</h2>
+
+    <!-- Certifications -->
+    <h3 class="about-subsection-title">Relics</h3>
+    <div class="relics-grid">
+
+      <div class="relic-card">
+        <div class="relic-badge">OSCP</div>
+        <div class="relic-info">
+          <div class="relic-name">Offensive Security Certified Professional</div>
+          <div class="relic-issuer">Offensive Security &bull; 2024</div>
+        </div>
+      </div>
+
+      <div class="relic-card">
+        <div class="relic-badge">eWPT<br>X</div>
+        <div class="relic-info">
+          <div class="relic-name">eLearnSecurity Web Penetration Tester eXtreme</div>
+          <div class="relic-issuer">INE Security &bull; 2024</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTF Campaigns -->
+    <h3 class="about-subsection-title">Campaigns</h3>
+    <div class="campaigns-list">
+      <div class="campaign-item">
+        <span class="campaign-name">HackTheBox — Pro Labs Offshore</span>
+        <span class="campaign-platform">HackTheBox</span>
+        <span class="campaign-rank">Completed</span>
+      </div>
+      <div class="campaign-item">
+        <span class="campaign-name">HackTheBox — Various Active Machines</span>
+        <span class="campaign-platform">HackTheBox</span>
+        <span class="campaign-rank">Active</span>
+      </div>
+      <div class="campaign-item">
+        <span class="campaign-name">TryHackMe — Top % Ranking</span>
+        <span class="campaign-platform">TryHackMe</span>
+        <span class="campaign-rank">Top 5%</span>
+      </div>
+    </div>
+
+    <!-- Operations -->
+    <h3 class="about-subsection-title">Operations</h3>
+    <div class="operations-list">
+      <div class="operation-item">
+        <div>
+          <div class="operation-name">Hackerlab — Challenge Architect</div>
+          <div class="operation-desc">Designed and deployed offensive security challenges for national training events</div>
+        </div>
+        <span class="operation-year">2025</span>
+      </div>
+      <div class="operation-item">
+        <div>
+          <div class="operation-name">bjCSIRT — Security Operations</div>
+          <div class="operation-desc">DFIR and detection engineering within the national CSIRT of Benin</div>
+        </div>
+        <span class="operation-year">2024 &ndash;</span>
+      </div>
+    </div>
+
+    <!-- Affiliations -->
+    <h3 class="about-subsection-title">Affiliations</h3>
+    <div class="affiliation-featured">
+      <div class="affiliation-tag">Active Member</div>
+      <div class="affiliation-name">Escadron</div>
+      <div class="affiliation-subtitle">National CTF Team &bull; Benin</div>
+      <p class="affiliation-desc">
+        Escadron is the national cybersecurity competition team representing Benin in international CTF events. Competing at the intersection of offensive security, DFIR, and cryptography.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     KNOWLEDGE TRANSMISSIONS
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <p class="about-section-label">Talks &amp; Events</p>
+    <h2 class="about-section-title">Knowledge Transmissions</h2>
+
+    <div class="knowledge-timeline">
+
+      <div class="timeline-event">
+        <div class="timeline-event-date">Jan 2026</div>
+        <div class="timeline-event-title">Beyond Sigma: Building Adaptive Detection Pipelines</div>
+        <div class="timeline-event-venue">SecurityConf 2026 &bull; Paris, France</div>
+        <div class="timeline-event-links">
+          <a href="#" class="timeline-event-link">Slides</a>
+          <a href="#" class="timeline-event-link">Recording</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     VULNERABILITY RESEARCH
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <p class="about-section-label">Research</p>
+    <h2 class="about-section-title">Vulnerability Research</h2>
+
+    <div class="vuln-research-block">
+      <div class="vuln-research-status">Active Research</div>
+      <div class="vuln-research-title">// Public vulnerability research and disclosures</div>
+      <p class="vuln-research-text">
+        Currently conducting offensive research across Active Directory attack surfaces, detection bypass techniques, and protocol-level vulnerabilities. Public disclosures will be published here upon coordinated release with affected vendors.
+      </p>
+      <div class="vuln-research-focus">
+        <div class="vuln-focus-item">Active Directory attack surface enumeration</div>
+        <div class="vuln-focus-item">Detection evasion research and bypass analysis</div>
+        <div class="vuln-focus-item">Kerberos protocol edge cases and exploitation</div>
+        <div class="vuln-focus-item">ADCS misconfiguration research (ESC chain)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTACT
+     ══════════════════════════════════════════════════════════ -->
+<section class="about-section" style="border-bottom:none">
+  <div class="container">
+    <p class="about-section-label">Contact</p>
+    <h2 class="about-section-title">Get in Touch</h2>
+
+    <div class="contact-terminal">
+      <div class="contact-terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="contact-terminal-title">wizard@kali — ~/links</span>
+      </div>
+      <div class="contact-terminal-body">
+        <div class="contact-prompt">
+          <span class="terminal-ps">$</span>
+          <span class="terminal-cmd">links</span>
+        </div>
+        <div class="contact-links">
+          <a href="https://github.com/0xW1z4rd" class="contact-link" target="_blank" rel="noopener">
+            <span class="contact-link-key">GitHub</span>
+            <span class="contact-link-arrow">-&gt;</span>
+            <span class="contact-link-val">github.com/0xW1z4rd</span>
+          </a>
+          <a href="https://linkedin.com/in/wizard" class="contact-link" target="_blank" rel="noopener">
+            <span class="contact-link-key">LinkedIn</span>
+            <span class="contact-link-arrow">-&gt;</span>
+            <span class="contact-link-val">linkedin.com/in/wizard</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-link-key">Discord</span>
+            <span class="contact-link-arrow">-&gt;</span>
+            <span class="contact-link-val">wizard</span>
+          </a>
+          <a href="mailto:wizard@protonmail.com" class="contact-link">
+            <span class="contact-link-key">Email</span>
+            <span class="contact-link-arrow">-&gt;</span>
+            <span class="contact-link-val">wizard@protonmail.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
