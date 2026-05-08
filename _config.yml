@@ -5,13 +5,13 @@ url: "https://0xw1z4rd.github.io"
 baseurl: ""
 
 author:
-  name: Wizard
+  name: Emmanuel HEMADOU
   bio: "Building detection logic from digital shadows."
-  github: "wizard"
-  linkedin: ""
-  discord: ""
+  github: "0xW1z4rd"
+  linkedin: "emmanuel-hemadou-902725190"
+  discord: "0xw1z4rd"
   twitter: ""
-  email: ""
+  email: "hem4emanuel@gmail.com"
 
 # Build settings
 markdown: kramdown
